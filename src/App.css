@@ -39,7 +39,7 @@ html, body{
     border-bottom: 1px solid #A2DBFA;
   }
 }
-.active-tab{
+.active{
   background-color: #A2DBFA;
   font-weight: 600;
   letter-spacing: 2px;
@@ -99,6 +99,23 @@ html, body{
   border-radius: 5px;
   color: white;
 }
+
+/* ============================== About Us ============================== */
+
+@media screen and  (max-width: 1080px) {
+  .about-dashboard{
+    padding: 30px 20px !important;
+  }
+}
+@media screen and  (max-width: 720px) {
+  .about-dashboard{
+    padding: 20px 10px !important;
+  }
+  .about-dashboard-ul{
+    padding: 10px 30px !important;
+  }
+}
+
 .about-us-link{
   font-weight: 500;
   color: #39A2DB;
@@ -122,6 +139,9 @@ html, body{
   color: #39A2DB;
   text-decoration: none;
 }
+
+/* ============================== Air Pollution ============================== */
+
 .aqi-items:hover{
 
   transform: scale(1.1);

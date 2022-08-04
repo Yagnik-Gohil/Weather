@@ -12,9 +12,9 @@ function About() {
             <h5 className="m-0">About</h5>
         </div>
 
-        <div className="row dashboard shadow-sm p-5 bg-light">
+        <div className="about-dashboard row dashboard shadow-sm p-5 bg-light">
             <h6>What is Weather?</h6>
-            <ul className="px-5">
+            <ul className="about-dashboard-ul px-5">
                 
                 <li>Weather is a web app for searching current weather data and forecast</li>
                 <li>we can check weather forecast for upcoming 5 days and can check hourly forecast also.</li>
