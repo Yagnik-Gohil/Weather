@@ -1,26 +1,15 @@
 import { React } from "react";
 import { NavLink } from "react-router-dom";
 import { UilCalendarAlt} from "@iconscout/react-unicons";
-// import { RightTabList } from "../Utility/GetRightTabList"
-import { useLocation , useMatch} from 'react-router-dom';
 
-function Right() {
+function Right({setDay}) {
   
-  // const dashboardMap = useMatch("/dashboard/:date");
-  // const airPollutionMap = useMatch("/airpollution/:date")
-
-  const location = useLocation()
-  // console.log(location)
-  // console.log(dashboardMap)
-  // console.log(airPollutionMap)
-
   let defaultDashboard = "/dashboard/" +  new Date().toLocaleDateString().replace(/\//g,"")
-  let defaultAirPollution = "/airpollution/" +  new Date().toLocaleDateString().replace(/\//g,"")
   let list = [
       {
           id: new Date().toLocaleDateString(),
           day: "Today",
-          to: location.pathname.includes("/dashboard/") ? defaultDashboard : defaultAirPollution
+          to: defaultDashboard
       },
   ];
   const weekday = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
@@ -32,14 +21,14 @@ function Right() {
       let obj = {
           id: date.toLocaleDateString(),
           day: day,
-          to: location.pathname.includes("/dashboard/") ? "/dashboard/"+ date.toLocaleDateString().replace(/\//g,"") : "/airpollution/"+ date.toLocaleDateString().replace(/\//g,"")//"/dashboard/"+ date.toLocaleDateString().replace(/\//g,"")
+          to: "/dashboard/"+ date.toLocaleDateString().replace(/\//g,"") 
       };
       list.push(obj);
   }
 
   const DaysLink = ({id,day,to}) =>{
     return(
-      <NavLink className= "nav-item px-5 py-3" to={to}>
+      <NavLink className= "nav-item px-5 py-3" to={to} onClick={() => {setDay(id.replace(/\//g,""))}}>
         <p className="link-text m-0 d-flex justify-content-between">
           <span>{day}</span>
           <span>{id}</span>

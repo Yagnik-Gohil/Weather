@@ -4,7 +4,18 @@ import { AsyncPaginate } from "react-select-async-paginate";
 
 function SearchBar({ onSearchChange }) {
   const [searchValue, setSearchValue] = useState(null);
-
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      boxShadow: "none",
+      
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      color: '#053742',
+      backgroundColor: state.isFocused && "#A2DBFA",
+   })
+  }
   const getCityList = (inputValue) => {
     return fetch(`${geoApiUrl}${inputValue}`, geoApiOptions)
       .then((response) => response.json())
@@ -21,6 +32,7 @@ function SearchBar({ onSearchChange }) {
       .catch((err) => console.error(err));
   };
   const handleInputChange = (inputValue) => {
+    
     setSearchValue(inputValue);
     onSearchChange(inputValue);
   };
@@ -31,6 +43,7 @@ function SearchBar({ onSearchChange }) {
       value={searchValue}
       onChange={handleInputChange}
       loadOptions={getCityList}
+      styles={customStyles}
     ></AsyncPaginate>
   );
 }

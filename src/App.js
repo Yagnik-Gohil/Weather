@@ -4,11 +4,13 @@ import Left from './components/Left';
 import Middle from './components/Middle';
 import Right from './components/Right';
 import About from './components/About';
-import AirPollution from './components/AirPollution';
 import Message from './components/Message';
+import { useState } from 'react';
 
 function App() {
-  let today = new Date().toLocaleDateString().replace(/\//g,"")
+  
+  const [day, setDay] = useState(new Date().toLocaleDateString().replace(/\//g,""));
+
   return (
     <div className="App app-container container-fluid">
       <div className="row main-row">
@@ -16,14 +18,13 @@ function App() {
         <Left></Left>
 
           <Routes>
-            <Route path="/" element={<Navigate to={"/dashboard/"+today} />} exact></Route>
-            <Route path={"/dashboard/:date"} element={<Middle/>}></Route>
-            <Route path="/airpollution/:date" element={<AirPollution/>}></Route>
+            <Route path="/" element={<Navigate to={"/dashboard/"+day} />} exact></Route>
+            <Route path={"/dashboard/:date"} element={<Middle day={day}/>}></Route>
             <Route path="/about" element={<About/>}></Route>
             <Route path="*" element={<Message/>}></Route>
           </Routes>
         
-        <Right></Right>
+        <Right setDay={setDay}></Right>
 
       </div>
     </div>
