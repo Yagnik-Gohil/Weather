@@ -45,7 +45,7 @@ function Left() {
   return (
     <div className="col-md-2 col-sm-2 p-0 pt-5">
       <div className="d-flex flex-column">
-        <Link className="logo-item px-5 pb-3 logo" to={defaultDashboard}>
+        <Link className="logo-item px-5 pb-3 logo" to="/">
           <img src="../../weather-icons/Logo.png" alt="Weather"></img>
         </Link>
         {tabs.map((item) => (

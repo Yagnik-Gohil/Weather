@@ -1,11 +1,12 @@
 import './App.css';
-import {Routes,Route,Navigate} from "react-router-dom";
+import {Routes,Route} from "react-router-dom";
 import Left from './components/Left';
 import Middle from './components/Middle';
 import Right from './components/Right';
 import About from './components/About';
 import Message from './components/Message';
 import { useState } from 'react';
+import Home from './components/Home';
 
 function App() {
   
@@ -18,7 +19,7 @@ function App() {
         <Left></Left>
 
           <Routes>
-            <Route path="/" element={<Navigate to={"/dashboard/"+day} />} exact></Route>
+            <Route path="/" element={ <Home/> } exact></Route>
             <Route path={"/dashboard/:date"} element={<Middle day={day}/>}></Route>
             <Route path="/about" element={<About/>}></Route>
             <Route path="*" element={<Message/>}></Route>
